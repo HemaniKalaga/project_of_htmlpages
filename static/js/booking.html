@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+</head>
+<body>
+	<script>
+		
+		let travelsVRL_1={
+		
+			id:"VRL101",
+			travelsName:'VRL',
+			bookings:[],
+			book:function(pName,seatNo)
+			{
+				console.log(`${pName} is booked seat in ${this.travelsName} travels with seat no. is ${seatNo}`);
+				this.bookings.push({passenger:`${pName} ${seatNo} ${seatNo} ${this.id}`});
+				
+			}
+
+		};
+
+
+		let travelsVRL_2={
+
+			id:"VRL102",
+			travelsName:'VRL',
+			bookings:[],
+		};
+
+		let book=travelsVRL_1.book;
+
+		console.log(travelsVRL_1.bookings,travelsVRL_1.bookings.length);
+		book.call(travelsVRL_1,"prashu",45);
+		console.log(travelsVRL_1.bookings,travelsVRL_1.bookings.length);
+
+		console.log(travelsVRL_2.bookings);
+		book.call(travelsVRL_2,"rani",32);
+		console.log(travelsVRL_2.bookings);
+
+	
+	</script>
+</body>
+</html>
